@@ -1,0 +1,7 @@
+sent_haberler = []
+
+for h in haberler:
+    if h['baslik'] in sent_haberler:
+        continue  # Bu haberi zaten paylaşmışız, atla
+    asyncio.run(bot.send_photo(chat_id=TARGET_CHAT_ID, photo=h['gorsel'], caption=f"📰 Başlık: {h['baslik']}\n🌐 Kaynak: {h['kaynak']}"))
+    sent_haberler.append(h['baslik'])
